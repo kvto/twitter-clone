@@ -47,8 +47,10 @@ const PostItem: React.FC<PostItemProps> = ({data, userId}) => {
     border-neutral-800
     p-5
     cursor-pointer
-    hover:bg-neutral-900">
+    hover:bg-neutral-900
+    transition">
 
+    
     </div> 
     );
 }
