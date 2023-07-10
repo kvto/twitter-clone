@@ -29,7 +29,7 @@ export default async function handler(
             throw new Error("Invalid ID");
         }
 
-        let updatedFollowingIds = [...(user.followingIds || [])];
+        let updatedFollowingIds = [... (user.followingIds || [])];
 
         if(req.method === "POST"){
             updatedFollowingIds.push(userId);
