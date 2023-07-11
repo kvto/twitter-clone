@@ -29,15 +29,15 @@ export default async function handler(
             throw new Error('Invalid ID')
         }
 
-        let updateLikedIds = [...(post.likeIds || [])];
+        let updateLikeIds = [...(post.likeIds || [])];
 
         if(req.method === 'POST'){
-            updateLikedIds.push(currentUser.id);
+            updateLikeIds.push(currentUser.id);
         }
 
         if(req.method === 'DELETE'){
-            updateLikedIds = updateLikedIds
-            .filter((likedId) => likedId !== currentUser.id)
+            updateLikeIds = updateLikeIds
+            .filter((likeId) => likeId !== currentUser.id)
         }
 
         const updatePost = await prisma.post.update({
@@ -45,7 +45,7 @@ export default async function handler(
                 id: postId
             },
             data: {
-                likeIds: updateLikedIds
+                likeIds: updateLikeIds
             }
         });
 

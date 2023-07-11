@@ -100,7 +100,7 @@ const PostItem: React.FC<PostItemProps> = ({data={}, userId}) => {
                     hover:text-sky-500">
                         <AiOutlineMessage size={20} />
                         <p>
-                            {data.comments?.length || 0 }
+                            {data.comments?.length || 0}
                         </p>
                     </div>
                     <div
