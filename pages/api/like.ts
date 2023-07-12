@@ -9,7 +9,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
 
   try {
-    const { postId } = req.body;
+    const postId = req.method === 'POST' ? req.body.postId : req.query.postId;
 
     const { currentUser } = await serverAuth(req, res);
 
