@@ -9,8 +9,6 @@ interface CommentItemProps {
 }
 
 const CommentItem: React.FC<CommentItemProps> = ({ data = {} }) => {
-  
-  console.log(data)
   const router = useRouter();
 
   const goToUser = useCallback((ev: any) => {
@@ -20,12 +18,12 @@ const CommentItem: React.FC<CommentItemProps> = ({ data = {} }) => {
   }, [router, data.user.id]);
 
   const createdAt = useMemo(() => {
-    if (!data?.createAt) {
+    if (!data?.createdAt) {
       return null;
     }
 
-    return formatDistanceToNowStrict(new Date(data.createAt));
-  }, [data.createAt])
+    return formatDistanceToNowStrict(new Date(data.createdAt));
+  }, [data.createdAt])
 
   return (
     <div 
