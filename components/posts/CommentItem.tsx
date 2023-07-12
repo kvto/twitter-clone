@@ -9,6 +9,8 @@ interface CommentItemProps {
 }
 
 const CommentItem: React.FC<CommentItemProps> = ({ data = {} }) => {
+  
+  console.log(data)
   const router = useRouter();
 
   const goToUser = useCallback((ev: any) => {

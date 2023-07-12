@@ -17,7 +17,7 @@ const useLike = ({ postId, userId }: {postId: string, userId?: string}) => {
         const list = fetchedPost?.likeIds || [];
 
         return list.includes(currentUser?.id);
-    }, [currentUser?.id, fetchedPost?.likeIds]);
+    }, [currentUser, fetchedPost]);
 
     const toogleLike = useCallback(async () => {
         if(!currentUser){
@@ -28,7 +28,7 @@ const useLike = ({ postId, userId }: {postId: string, userId?: string}) => {
             let request;
 
             if(hasLiked){
-                request = () => axios.delete('/api/like', { data: { postId }});
+                request = () => axios.delete('/api/like', { params: { postId }});
             }
             else {
                 request = () => axios.post('/api/like', { postId});

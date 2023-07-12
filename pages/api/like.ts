@@ -11,7 +11,7 @@ export default async function handler(
     }
 
     try {
-        const { postId } = req.body;
+        const postId = req.method === 'POST' ? req.body.postId : req.query.postId;
 
         const { currentUser } = await serverAuth(req, res);
 

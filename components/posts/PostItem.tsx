@@ -46,7 +46,7 @@ const PostItem: React.FC<PostItemProps> = ({data={}, userId}) => {
     },[data.createAt]);
 
     const LikeIcon = hasLiked ? AiFillHeart : AiOutlineHeart;
-
+    console.log(data)
     return ( 
     <div 
     onClick={goToPost}
